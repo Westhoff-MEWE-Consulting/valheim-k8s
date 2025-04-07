@@ -1,6 +1,6 @@
-worldName: example-world-name
-serverName: example-server-name
-password: password 
+worldName: GurkenTruppe
+serverName: GurkenTruppe
+password: 1234 
 
 resources: {}
 
@@ -11,20 +11,21 @@ image:
 storage:
   kind: hostvol
   hostvol:
-    path: /data/valheim
+    path: /var/data/valheim
   pvc:
-    size: 1Gi
+    size: 5Gi
 
 serverStorage:
   kind: hostvol
   hostvol:
-    path: /data/valheim-server
+    path: /var/data/valheim-server
   pvc:
-    size: 5Gi
+    size: 20Gi
 
 # if useHostNetworking is set to true then no service is created
 # and the gamePort 
-useHostNetworking: false
+useHostNetworking: true
+# if set to true, the game port will be published as a nodePort
 networking:
   # Optional additional annotations to add to the service
   # serviceAnnotations: {}
@@ -43,16 +44,16 @@ tolerations: {}
 # If you utilize priority classes, you can define the priority class for this deployment here
 # priorityClassName: my-priority-class-name
 
-# resources:
-#   requests:
-#     memory: "4Gi"
-#     cpu: "2000m"
+resources:
+  requests:
+    memory: "6Gi"
+    cpu: "4000m"
 
-# extraEnvironmentVars:
-#   BACKUPS: true
-#   BACKUPS_CRON: "0 * * * *"
-#   BACKUPS_MAX_AGE: 3
-#   POST_BACKUP_HOOK: "timeout 300 scp -i /extraVolumes/backup-ssh-key/ssh-privatekey -o StrictHostKeyChecking=no @BACKUP_FILE@ myself@example.com:~/valheim_backups/$(basename @BACKUP_FILE@)"
+extraEnvironmentVars:
+  BACKUPS: true
+  BACKUPS_CRON: "0 * * * *"
+  BACKUPS_MAX_AGE: 3
+  # POST_BACKUP_HOOK: "timeout 300 scp -i /extraVolumes/backup-ssh-key/ssh-privatekey -o StrictHostKeyChecking=no @BACKUP_FILE@ myself@example.com:~/valheim_backups/$(basename @BACKUP_FILE@)"
 
 # extraVolumes:
 # - type: secret
