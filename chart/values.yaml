@@ -31,10 +31,10 @@ networking:
   # serviceAnnotations: {}
   # Optional additional labels to add to the service
   # serviceLabels: {}
-  serviceType: LoadBalancer
+  serviceType: NodePort
   gamePort: 2456
   publishQueryPort: true
-  nodePort: 30373
+  nodePort: 2456
   externalIPs: [135.181.57.218]
 
 
