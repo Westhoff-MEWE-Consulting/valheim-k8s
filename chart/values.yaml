@@ -35,6 +35,7 @@ networking:
   gamePort: 2456
   publishQueryPort: true
   nodePort: 30373
+  externalIPs: [135.181.57.218]
 
 
 nodeSelector: {}
