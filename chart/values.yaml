@@ -55,7 +55,7 @@ extraEnvironmentVars:
   BACKUPS_CRON: "0 * * * *"
   BACKUPS_MAX_AGE: 3
   BEPINEX: true
-  ADMINLIST_IDS	: [76561197964946798, 76561198157914188]
+  ADMINLIST_IDS	: 76561197964946798 76561198157914188
   # POST_BACKUP_HOOK: "timeout 300 scp -i /extraVolumes/backup-ssh-key/ssh-privatekey -o StrictHostKeyChecking=no @BACKUP_FILE@ myself@example.com:~/valheim_backups/$(basename @BACKUP_FILE@)"
 
 # extraVolumes:
